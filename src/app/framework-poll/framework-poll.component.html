@@ -1,0 +1,52 @@
+<div class="container" [style.textAlign]="'center'" [style.padding.px]="10">
+  <div class="card">
+    <div class="card-body">
+      <div *ngIf="!hasVoted && !updating">
+          <h2> Which Is your favorite ?</h2>
+          <h4>Click The Logos</h4>
+          <br>
+          <div class="row">
+            <div class="offset-md-3 col-md-2">
+              <img src="../../assets/angular-js-logo.png" height="96"
+              alt="Angular" (click)="vote('angularVoteCount')" >
+            </div>
+            <div class="col-md-2">
+              <img src="../../assets/react.png" height="96"
+              alt="React" (click)="vote('reactVoteCount')" >
+            </div>
+            <div class="col-md-2">
+              <img src="../../assets/Vue.js_Logo.svg.png" height="96"
+              alt="Vue" (click)="vote('vueVoteCount')" >
+            </div>
+          </div>
+      </div>
+      <div *ngIf="updating">
+          <h3>Redirecting Vote Result .. </h3>
+      </div>
+      <div *ngIf="hasVoted">
+          <span class="badge badge-pill badge-danger mb-1">
+            Angular : {{angularVoteCount}} ( {{angularVotePercent}} %)
+          </span>
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped bg-danger" role="progressbar"[style.w idth.%]="angularVotePercent"></div>
+          </div>
+
+
+          <span class="badge badge-pill badge-danger mb-1">
+            React : {{reactVoteCount}} ( {{reactVotePercent}} %)
+          </span>
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped bg-success" role="progressbar"[style.w idth.%]="reactVotePercent"></div>
+          </div>
+
+
+          <span class="badge badge-pill badge-danger mb-1">
+            Angular : {{vueVoteCount}} ( {{vueVotePercent}} %)
+          </span>
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped bg-info" role="progressbar"[style.w idth.%]="vueVotePercent"></div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
